@@ -56,6 +56,9 @@ class ViewController: UIViewController {
             .map{ notification -> String? in
                 // Use .map Operator to make sure that the output of publisher (String)
                 // and input of subscriber (String) are the same
+                //
+                // Understand like this, publisher will publish a notification.
+                // We will map that notification to String
                 return (notification.object as? Message)?.content ?? ""
             }
         
@@ -67,7 +70,6 @@ class ViewController: UIViewController {
                                                    keyPath: \.text)
         // Connect publisher and subscriber
         messagePublisher.subscribe(messageSubscriber)
-        
     }
 
     @IBAction func didSwitch(_ sender: Any) {
